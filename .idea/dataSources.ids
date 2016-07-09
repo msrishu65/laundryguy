@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - laundryguy@localhost" uuid="48ec1a29-0dbb-4cc9-841b-c38dd056407c">
+    <database-info product="MySQL" version="5.6.28-0ubuntu0.15.10.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="laundryguy"/>
+    <table name="booking" schema="" catalog="laundryguy" type="TABLE">
+      <column name="booking_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cell" sqlType="VARCHAR" precision="11" scale="0" nullable="true" jdbcType="12"/>
+      <column name="addressId" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="time_slot" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="amount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="booking_id"/>
+    </table>
+    <table name="booking_address" schema="" catalog="laundryguy" type="TABLE">
+      <column name="addressId" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="house_no" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="society" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="longitude" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="latitude" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="addressId"/>
+    </table>
+  </data-source>
+</component>
