@@ -13,4 +13,5 @@
 .springBeans
 .project
 .metadata/
-**/${sys:catalina.home}
+*/target/**
+src/test/

@@ -7,12 +7,6 @@
       <introspection-scope>laundryguy:*</introspection-scope>
       <resolve-scope>laundryguy:*</resolve-scope>
     </data-source>
-    <data-source name="sessionFactory/Hibernate" uuid="45762521-4077-4b38-a749-0eccd3d443b0">
-      <user-name>root</user-name>
-      <user-password>dfe7dfd9dfd8dfc3dfd9dfc2dfdfdf9cdf9c</user-password>
-      <introspection-scope>laundryguy:</introspection-scope>
-      <resolve-scope>laundryguy:</resolve-scope>
-    </data-source>
     <data-source name="dataSourceSlave" uuid="dda72b28-b8c0-49b1-94a5-eb0073c588c3">
       <first-sync>true</first-sync>
       <user-name>${jdbcslave.url}</user-name>

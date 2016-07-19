@@ -123,24 +123,6 @@
       </key>
     </database-model>
   </data-source>
-  <data-source name="sessionFactory/Hibernate" uuid="45762521-4077-4b38-a749-0eccd3d443b0">
-    <database-info product="MySQL" version="5.6.28-0ubuntu0.15.10.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
-    </database-info>
-    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
-    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
-      <schema id="1" name="laundryguy">
-        <visible>1</visible>
-      </schema>
-      <schema id="2" name="information_schema"/>
-      <schema id="3" name="mobikey"/>
-      <schema id="4" name="mobikwik"/>
-      <schema id="5" name="mobikwikupdated"/>
-      <schema id="6" name="mysql"/>
-      <schema id="7" name="performance_schema"/>
-    </database-model>
-  </data-source>
   <data-source name="dataSourceSlave" uuid="dda72b28-b8c0-49b1-94a5-eb0073c588c3">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
