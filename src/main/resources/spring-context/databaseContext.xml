@@ -64,8 +64,9 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>com.laundryguy.model.entity.Booking</value>
-                <value>com.laundryguy.model.entity.BookingAddress</value>
+                <value>com.laundryguy.booking.model.entity.Booking</value>
+                <value>com.laundryguy.booking.model.entity.BookingAddress</value>
+                <value>com.laundryguy.booking.model.entity.Member</value>
             </list>
         </property>
     </bean>

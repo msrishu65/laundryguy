@@ -1,0 +1,16 @@
+.idea
+*.iml
+**/*.class
+**/.project
+**/.classpath
+.settings
+**/target/
+**/.externalToolBuilders/
+**/bin/
+**/.settings/
+**/.settings/*
+.DS_Store
+.springBeans
+.project
+.metadata/
+**/${sys:catalina.home}
