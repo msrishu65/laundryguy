@@ -52,7 +52,7 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
         SessionDTO sessionDTO = null;
         try {
             sessionDTO = sessionService.authenticateTokenAndGetData(token, clientType);
-            request.setAttribute("email", sessionDTO.getMemberEmail());
+            request.setAttribute("email", sessionDTO.getMemebrId());
         } catch (SessionException e) {
             return buildJsonFailureResponse(e.getErrorCode(), response);
         }

@@ -28,7 +28,7 @@ public class SessionEntity {
 
     public static SessionEntity build(SessionDTO sessionDTO) {
         SessionEntity sessionEntity = new SessionEntity();
-        sessionEntity.memberId = sessionDTO.getMemberEmail();
+        sessionEntity.memberId = sessionDTO.getMemebrId();
         sessionEntity.clientType = sessionDTO.getClientType().getValue();
         sessionEntity.clientIdentifier = sessionDTO.getClientType().getIdentifier();
         sessionEntity.tokenId = sessionDTO.getToken();

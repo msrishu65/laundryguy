@@ -6,10 +6,10 @@ import com.laundryguy.booking.model.enums.UserClientType;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * @Author Saarthak Vats (09-Jul-2015)
+ * @Author maninder
  */
 public class SessionDTO {
-    private String memberEmail;
+    private String memebrId;
     private UserClientType clientType;
     private String token;
     private boolean remember;
@@ -33,43 +33,41 @@ public class SessionDTO {
     public static SessionDTO build(LoginRequest loginRequest, long id) {
         SessionDTO sessionDTO = new SessionDTO();
         sessionDTO.clientType = loginRequest.getClientType();
-        sessionDTO.memberEmail = loginRequest.getLoginId();
+        sessionDTO.memebrId = loginRequest.getCell();
         sessionDTO.id = id;
         sessionDTO.remember = Boolean.parseBoolean(loginRequest.getRemember());
         return sessionDTO;
     }
 
     /* build SessionDTO from signUp Request */
-/*
-    public static SessionDTO build(SignUpRequest signUpRequest, long id, int clientId) {
+
+    public static SessionDTO build(String memberId, long id, UserClientType clientId) {
         SessionDTO sessionDTO = new SessionDTO();
-        sessionDTO.clientType = UserClientType.fromIdentifier(clientId);
-        sessionDTO.memberEmail = signUpRequest.getEmail();
+        sessionDTO.clientType = clientId;
+        sessionDTO.memebrId = memberId;
         sessionDTO.id = id;
         return sessionDTO;
     }
 
-*/
-
     public static SessionDTO build(String loginId, UserClientType clientType) {
         SessionDTO sessionDTO = new SessionDTO();
         sessionDTO.clientType = clientType;
-        sessionDTO.memberEmail = loginId;
+        sessionDTO.memebrId = loginId;
         return sessionDTO;
     }
 
     public static SessionDTO build(SessionEntity sessionEntity) {
         SessionDTO sessionDTO = new SessionDTO();
         sessionDTO.clientType = UserClientType.fromIdentifier(sessionEntity.getClientIdentifier());
-        sessionDTO.memberEmail = sessionEntity.getMemberId();
+        sessionDTO.memebrId = sessionEntity.getMemberId();
         sessionDTO.id = sessionEntity.getId();
         if (StringUtils.isNotBlank(sessionEntity.getNewTokenId()))
             sessionDTO.newToken = sessionEntity.getNewTokenId();
         return sessionDTO;
     }
 
-    public String getMemberEmail() {
-        return memberEmail;
+    public String getMemebrId() {
+        return memebrId;
     }
 
     public UserClientType getClientType() {
@@ -86,7 +84,7 @@ public class SessionDTO {
 
     @Override
     public String toString() {
-        return "SessionDTO [memberEmail=" + memberEmail + ", clientType=" + clientType + "]";
+        return "SessionDTO [memebrId=" + memebrId + ", clientType=" + clientType + "]";
     }
 
     public String getNewToken() {

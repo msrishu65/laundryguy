@@ -29,23 +29,13 @@ public class LoginService {
     public void loginUser(LoginRequest loginRequest, HttpServletResponse response) {
         long id = validator.validateLoginRequest(loginRequest);
         recordLoginHistory(loginRequest);
-        createSession(loginRequest, response, id);
+        SessionDTO sessionDTO = SessionDTO.build(loginRequest, id);
+        sessionService.createSession(sessionDTO);
     }
 
     private void recordLoginHistory(LoginRequest loginRequest) {
-     //TODO: saving login history
+        //TODO: saving login history
     }
 
-
-    private void createSession(LoginRequest loginRequest, HttpServletResponse response, long id) {
-        // token generation and creating session
-        SessionDTO sessionDTO = SessionDTO.build(loginRequest, id);
-        logger.info("sessionDTO:" + sessionDTO);
-        String sessionToken = sessionService.createSession(sessionDTO);
-
-        // getting details ready for response
-        response.setHeader("token", sessionToken);
-        response.setHeader("hashId", sessionService.getHashOfIdentifier(Long.toString(id)));
-    }
 
 }

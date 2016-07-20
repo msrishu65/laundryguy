@@ -21,6 +21,7 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +36,16 @@ public class SessionService {
     TokenService tokenService;
     @Autowired
     private SessionConfig sessionConfig;
+
+    private void createSession(SessionDTO sessionDTO, HttpServletResponse response) {
+        // token generation and creating session
+        logger.info("sessionDTO:" + sessionDTO);
+        String sessionToken = createSession(sessionDTO);
+        // getting details ready for response
+        response.setHeader("token", sessionToken);
+        response.setHeader("hashId", getHashOfIdentifier(Long.toString(sessionDTO.getId())));
+    }
+
 
     /**
      * Authenticates the token and returns SessionDTO
@@ -358,5 +369,6 @@ public class SessionService {
         id[0] = s;
         return HashingUtil.getMD5Hash(id);
     }
+
 
 }

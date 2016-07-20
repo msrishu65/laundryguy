@@ -1,10 +1,12 @@
 package com.laundryguy.booking.model.apiRequest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.laundryguy.booking.model.enums.UserClientType;
 import org.hibernate.validator.constraints.NotBlank;
 
-public class LoginRequest {
+/**
+ * Created by maninder on 20/7/16.
+ */
+public class SignUpRequest {
 
     @NotBlank
     private String cell;
@@ -17,31 +19,18 @@ public class LoginRequest {
     @JsonProperty("av")
     private String appVersion;
 
-
     private String otp;
-
-    @NotBlank
-    private String remember;
-
-    //not received from client
-    private UserClientType clientType;
 
     private String ipAddress;
 
-    public UserClientType getClientType() {
-        return clientType;
+    private String memberId;
+
+    public String getMemberId() {
+        return memberId;
     }
 
-    public void setClientType(UserClientType clientType) {
-        this.clientType = clientType;
-    }
-
-    public String getIpAddress() {
-        return ipAddress;
-    }
-
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
     public String getCell() {
@@ -84,11 +73,11 @@ public class LoginRequest {
         this.otp = otp;
     }
 
-    public String getRemember() {
-        return remember;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setRemember(String remember) {
-        this.remember = remember;
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 }

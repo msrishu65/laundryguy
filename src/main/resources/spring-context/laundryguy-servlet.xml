@@ -11,4 +11,11 @@
 
     <tx:annotation-driven transaction-manager="hibernateTxManager"/>
 
+    <mvc:view-controller path="/" view-name="index"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
 </beans>

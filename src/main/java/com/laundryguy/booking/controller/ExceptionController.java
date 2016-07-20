@@ -1,5 +1,7 @@
 package com.laundryguy.booking.controller;
 
+import com.laundryguy.booking.model.Exception.SessionException;
+import com.laundryguy.booking.model.Exception.UserProfileException;
 import com.laundryguy.booking.model.apiResponse.MessageApiResponse;
 import com.laundryguy.booking.model.apiResponse.RestApiResponse;
 import org.apache.logging.log4j.LogManager;
@@ -36,19 +38,33 @@ public class ExceptionController {
         return RestApiResponse.buildFail(MessageApiResponse.build(code, message));
     }
 
-    /**
-     * This method handles general DB Exception
-     *
-     * @param exception
-     * @return
-     */
+
+    @ExceptionHandler(value = {SessionException.class})
+    @ResponseStatus(HttpStatus.OK)
+    protected
+    @ResponseBody
+    RestApiResponse sessionExceptionHandler(SessionException exception) {
+        logger.error(exception.toString(), exception);
+        return RestApiResponse.buildFail(MessageApiResponse.build(exception.getErrorCode().name(), exception.getErrorCode().getErrorDesc()));
+    }
+
+    @ExceptionHandler(value = {UserProfileException.class})
+    @ResponseStatus(HttpStatus.OK)
+    protected
+    @ResponseBody
+    RestApiResponse userProfileExceptionHandler(UserProfileException exception) {
+        logger.error(exception.toString(), exception);
+        return RestApiResponse.buildFail(MessageApiResponse.build(exception.getErrorCode().name(), exception.getErrorCode().getErrorDesc()));
+    }
+
+
     @ExceptionHandler(value = {Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected
     @ResponseBody
     RestApiResponse genericExceptionHandler(Exception exception) {
         logger.error(exception.toString(), exception);
-        return RestApiResponse.buildFail(MessageApiResponse.build("500", "Sorry ,try again later"));
+        return RestApiResponse.buildFail(MessageApiResponse.build("500", "Sorry, Something went bad"));
     }
 
 }
